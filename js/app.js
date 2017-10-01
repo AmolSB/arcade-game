@@ -1,5 +1,5 @@
 var isBetween = function(n, a, b) {
-    return (n-a) * (n-b) <= 0;
+    return (n - a) * (n - b) <= 0;
 }
 
 var highScore = localStorage.getItem("highScore");
@@ -23,9 +23,9 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.checkCollision();
     this.x += this.speed * dt;
-    if(this.x > 505) {
-	this.initPosition();
-	this.initSpeed();
+    if (this.x > 505) {
+        this.initPosition();
+        this.initSpeed();
     }
 };
 
@@ -38,7 +38,7 @@ Enemy.prototype.initPosition = function() {
     var positions = [125, 208, 291];
     this.x = -101;
     this.y = positions[Math.floor(Math.random() * 3)];
-    
+
 }
 
 Enemy.prototype.initSpeed = function() {
@@ -47,10 +47,10 @@ Enemy.prototype.initSpeed = function() {
 }
 
 Enemy.prototype.checkCollision = function() {
-    if((isBetween(player.x, this.x, this.x+60) || isBetween(player.x+101, this.x+35, this.x+101)) && isBetween(player.y+100, this.y, this.y+83)) {
-	player.initPosition();
-	player.reduceLife();
-    }	
+    if ((isBetween(player.x, this.x, this.x + 60) || isBetween(player.x + 101, this.x + 35, this.x + 101)) && isBetween(player.y + 100, this.y, this.y + 83)) {
+        player.initPosition();
+        player.reduceLife();
+    }
 }
 
 // Now write your own player class
@@ -73,26 +73,26 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(move) {
-    if(move == "left" && this.x > 0) {
-	this.x -= 101;
+    if (move == "left" && this.x > 0) {
+        this.x -= 101;
     }
-    if(move == "right" && this.x < 404) {
-	this.x += 101;
+    if (move == "right" && this.x < 404) {
+        this.x += 101;
     }
-    if(move == "up" && this.y > 0) {
-	this.y -= 83;
-	if(this.y <= 0) {
-	    this.y = 380;
-	    this.handleScore();
-	}
+    if (move == "up" && this.y > 0) {
+        this.y -= 83;
+        if (this.y <= 0) {
+            this.y = 380;
+            this.handleScore();
+        }
     }
-    if(move == "down" && this.y < 380) {
-	this.y += 83;
+    if (move == "down" && this.y < 380) {
+        this.y += 83;
     }
 }
 
 Player.prototype.reduceLife = function() {
-    (this.life > 0) ? this.life -= 1 : this.endGame();
+    (this.life > 0) ? this.life -= 1: this.endGame();
 }
 
 Player.prototype.endGame = function() {
@@ -101,22 +101,22 @@ Player.prototype.endGame = function() {
     var finalMax = localStorage.getItem("highScore");
     $(".endGame").fadeIn("slow");
     $("button").click(function() {
-	window.location.reload();
+        window.location.reload();
     });
 
 }
 
 
 Player.prototype.handleScore = function() {
-    if(!this.gameOver) {
-	this.score += 10;
-	if(highScore !== null) {
-	    if(this.score > highScore) {
-		localStorage.setItem("highScore", this.score);
-	    }
-	} else {
-	    localStorage.setItem("highScore", this.score);
-	}
+    if (!this.gameOver) {
+        this.score += 10;
+        if (highScore !== null) {
+            if (this.score > highScore) {
+                localStorage.setItem("highScore", this.score);
+            }
+        } else {
+            localStorage.setItem("highScore", this.score);
+        }
     }
 }
 
@@ -129,7 +129,7 @@ Player.prototype.displayDetails = function() {
     document.getElementById("score").textContent = this.score;
     document.getElementById("highScore").textContent = localStorage.getItem("highScore");
     document.getElementById("lifeRemains").textContent = this.life;
-}  
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -140,13 +140,12 @@ var player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup',function listenKey(e){
-	var allowedKeys = {
-            37: 'left',
-            38: 'up',
-            39: 'right',
-            40: 'down'
-	};
-	player.handleInput(allowedKeys[e.keyCode]);
-    }   
-);
+document.addEventListener('keyup', function listenKey(e) {
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
+    };
+    player.handleInput(allowedKeys[e.keyCode]);
+});
