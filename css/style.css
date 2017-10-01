@@ -1,3 +1,44 @@
 body {
+    padding-top: 50px;
     text-align: center;
+    width: 505px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+h3 {
+    display: inline;
+    margin: 0 8%;
+    padding: 0;
+}
+
+.endGame {
+    box-sizing: border-box;
+    position: absolute;
+    width: 505px;
+    height: 570px;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 5px;
+    color: white;
+    padding-top: 100px;
+    display: none;
+}
+
+button {
+    display: block;
+    margin: 50px auto;
+    width: 320x;
+    height: 70px;
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(119,119,119);
+    box-shadow: 0 0 10px 0 rgb(119,119,119);
+    cursor: pointer;
 }

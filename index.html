@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Effective JavaScript: Frogger</title>
+  <script src="js/jquery-3.2.1.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <h3 class="scorePoints">Score: <span id="score"></span></h3>
+  <h3 class="life">Life: <span id="lifeRemains"></span></h3>
+  <h3 class="highest">Highest: <span id="highScore"></span></h3>
+
+  <div class="endGame">
+    <h1 style="text-align:center">Game Over</h1>
+    <h3>Play Again ?</h3>
+    <button>New Game</button>
+  </div>
+  
   <script src="js/resources.js"></script>
   <script src="js/engine.js"></script>
   <script src="js/app.js"></script>

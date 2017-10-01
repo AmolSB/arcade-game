@@ -25,7 +25,7 @@ var Engine = (function(global) {
         lastTime;
 
     canvas.width = 505;
-    canvas.height = 606;
+    canvas.height = 570;
     doc.body.appendChild(canvas); window.ctx = canvas.getContext('2d');
 
     /* This function serves as the kickoff point for the game loop itself
@@ -79,7 +79,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+//        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
